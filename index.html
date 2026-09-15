@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" /><title>Usage Atlas</title>
+  <link rel="manifest" href="manifest.webmanifest" /><link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><div><p class="eyebrow">PERSONAL ANALYTICS</p><h1>Usage Atlas</h1></div><div class="header-actions"><span class="badge">● Demo data</span><button id="resetDemo" title="Reset saved dashboard preferences">Reset demo</button><button id="themeButton" class="icon-button" aria-label="Toggle theme">☼</button></div></header>
+    <section class="hero"><div><div class="provider-row"><label for="provider">Provider</label><select id="provider"><option>OpenAI</option><option disabled>Claude — coming soon</option><option disabled>Gemini — coming soon</option></select></div><h2>Your OpenAI usage, in focus.</h2><p id="subtitle">Last updated: just now · Demo data</p></div><div class="range-controls" id="rangeControls"><button data-range="today">Today</button><button data-range="3">Last 3 days</button><button data-range="7" class="active">Last 7 days</button><button data-range="30">Last 30 days</button><button data-range="month">This month</button><button data-range="previous">Previous month</button><label class="custom-date">Custom <input id="from" type="date" aria-label="Start date" /> <input id="to" type="date" aria-label="End date" /></label></div></section>
+    <section id="notice" class="notice hidden" role="status"></section>
+    <section class="summary" id="summary"></section>
+    <section class="grid analytics"><article class="panel trend"><div class="panel-head"><div><p class="eyebrow">DAILY ACTIVITY</p><h3>Usage trend</h3></div><div id="metricTabs" class="tabs"><button data-metric="total" class="active">Tokens</button><button data-metric="input">Input</button><button data-metric="output">Output</button><button data-metric="cost">Cost</button><button data-metric="requests">Requests</button></div></div><div id="chart" class="chart" aria-label="Usage chart"></div></article>
+    <article class="panel allocation"><div class="panel-head"><div><p class="eyebrow">MODEL MIX</p><h3>Where tokens went</h3></div></div><div id="donut" class="donut-wrap"></div><div id="insight" class="insight"></div></article></section>
+    <section class="panel models"><div class="panel-head"><div><p class="eyebrow">MODEL BREAKDOWN</p><h3>Usage by model</h3></div></div><div class="table-wrap"><table><thead><tr><th>Model</th><th>Requests</th><th>Input</th><th>Output</th><th>Total</th><th>Cost</th><th>Share</th></tr></thead><tbody id="modelRows"></tbody></table></div></section>
+    <section class="panel activity"><div class="panel-head"><div><p class="eyebrow">SAMPLE RECORDS</p><h3>Recent activity</h3></div><input id="search" placeholder="Search model or status" aria-label="Search usage records" /></div><div class="table-wrap"><table><thead><tr><th><button data-sort="date">Date ↕</button></th><th>Model</th><th>Input</th><th>Output</th><th><button data-sort="total">Total ↕</button></th><th><button data-sort="cost">Cost ↕</button></th><th>Status</th></tr></thead><tbody id="activityRows"></tbody></table></div><footer class="pager"><button id="prev">← Previous</button><span id="pageInfo"></span><button id="next">Next →</button></footer></section>
+  </main><script type="module" src="app.js"></script>
+</body></html>
